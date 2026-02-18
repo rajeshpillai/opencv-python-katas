@@ -66,14 +66,14 @@ Image filtering, edge detection, morphology, and contour analysis.
 - [x] **30 — Scharr Operator** — cv2.Scharr, better accuracy than Sobel for small kernels
 - [x] **31 — Laplacian Edge Detection** — cv2.Laplacian, second-order derivatives
 - [x] **32 — Canny Edge Detection** — cv2.Canny, double thresholds, non-maximum suppression
-- [ ] **33 — Morphology: Erosion** — cv2.erode, structuring elements, iteration count
-- [ ] **34 — Morphology: Dilation** — cv2.dilate, expanding regions, filling gaps
-- [ ] **35 — Morphology: Opening & Closing** — cv2.morphologyEx, noise removal strategies
-- [ ] **36 — Morphology: Gradient, TopHat, BlackHat** — Advanced morphological operations
-- [ ] **37 — Connected Components** — cv2.connectedComponents, labeling regions
-- [ ] **38 — Finding Contours** — cv2.findContours, RETR modes, CHAIN_APPROX methods
-- [ ] **39 — Contour Properties** — cv2.contourArea, cv2.arcLength, bounding boxes
-- [ ] **40 — Contour Drawing & Filtering** — cv2.drawContours, filtering by area/shape
+- [x] **33 — Morphology: Erosion** — cv2.erode, structuring elements, iteration count
+- [x] **34 — Morphology: Dilation** — cv2.dilate, expanding regions, filling gaps
+- [x] **35 — Morphology: Opening & Closing** — cv2.morphologyEx, noise removal strategies
+- [x] **36 — Morphology: Gradient, TopHat, BlackHat** — Advanced morphological operations
+- [x] **37 — Connected Components** — cv2.connectedComponents, labeling regions
+- [x] **38 — Finding Contours** — cv2.findContours, RETR modes, CHAIN_APPROX methods
+- [x] **39 — Contour Properties** — cv2.contourArea, cv2.arcLength, bounding boxes
+- [x] **40 — Contour Drawing & Filtering** — cv2.drawContours, filtering by area/shape
 - [ ] **41 — Convex Hull & Defects** — cv2.convexHull, cv2.convexityDefects
 - [ ] **42 — Contour Approximation** — cv2.approxPolyDP, shape simplification, epsilon
 - [ ] **43 — Shape Detection** — Classifying contours as triangle, rectangle, circle
