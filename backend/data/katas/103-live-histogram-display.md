@@ -159,6 +159,15 @@ In practice, `cv2.calcHist` is highly optimized in C++ — even at full resoluti
 - On auto-exposure cameras, the histogram shifts constantly as the camera adjusts. Disable auto-exposure (`cap.set(cv2.CAP_PROP_AUTO_EXPOSURE, 0)`) for stable readings.
 - A spike at bin 0 or bin 255 means **clipping** — detail is lost in shadows or highlights.
 
+## How to Test This Kata
+
+> **This is a live camera kata.** Click **"Run on Desktop"** in the Code tab — an OpenCV window will open on your desktop using your real webcam. Press **q** in the OpenCV window to quit.
+
+- Verify the B, G, R histogram curves update in real-time in the right panel alongside the camera feed
+- Cover the camera lens with your hand — the histogram should shift heavily toward the left (low values) and the stats panel should show "UNDEREXPOSED"
+- Point the camera at a bright light or window — the histogram should shift right and may show "OVEREXPOSED"
+- Wave a brightly colored object in front of the camera and watch the corresponding channel spike in the histogram
+
 ## Starter Code
 
 ```python

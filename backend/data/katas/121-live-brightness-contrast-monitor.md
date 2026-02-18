@@ -232,6 +232,14 @@ This overhead is negligible for a 30 FPS pipeline. No downsampling or skip-frame
 - When combining the histogram display with the camera feed, resize the histogram canvas to match the frame height for clean stacking.
 - For per-channel analysis (B, G, R separately), compute three histograms. But for brightness and contrast monitoring, a single grayscale histogram is both simpler and more meaningful.
 
+## How to Test This Kata
+
+> **This is a live camera kata.** Click **"Run on Desktop"** in the Code tab — an OpenCV window will open on your desktop using your real webcam. Press **q** in the OpenCV window to quit.
+
+- Cover the lens or point at a dark area — the dashboard on the right should show "VERY DARK" or "Dark" in red/yellow, with low brightness and high underexposed percentage
+- Point at a bright light or window — the status should shift to "VERY BRIGHT" or "Bright" with the highlight clipping percentage rising
+- Watch the histogram panel update in real-time as you pan the camera, and verify the brightness gauge needle moves within the green "good zone" markers under normal lighting
+
 ## Starter Code
 
 ```python

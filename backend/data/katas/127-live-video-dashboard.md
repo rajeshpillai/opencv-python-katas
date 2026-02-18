@@ -231,6 +231,14 @@ view_edges = cv2.resize(cv2.cvtColor(edges_small, cv2.COLOR_GRAY2BGR), (cell_w, 
 - Use `cv2.INTER_AREA` when downscaling for the cleanest results. `cv2.INTER_LINEAR` is acceptable for speed but can produce aliasing artifacts.
 - The motion detection view requires a previous frame. On the first frame, display a black panel or the raw grayscale until `prev_gray` is available.
 
+## How to Test This Kata
+
+> **This is a live camera kata.** Click **"Run on Desktop"** in the Code tab — an OpenCV window will open on your desktop using your real webcam. Press **q** in the OpenCV window to quit.
+
+- Verify all 6 panels are visible in a 3x2 grid: Original, Edge Detection, Color Segmentation, Motion Detection, Histogram, and Thresholded — each with its label in the top-left corner
+- Wave your hand and confirm the Motion Detection panel (bottom-left) lights up green where movement occurs and the motion percentage updates
+- Hold a green object in front of the camera to see it isolated in the Color Segmentation panel (top-right), while the Histogram panel shows the corresponding channel shift
+
 ## Starter Code
 
 ```python
