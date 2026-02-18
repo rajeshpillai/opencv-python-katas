@@ -88,16 +88,16 @@ Image filtering, edge detection, morphology, and contour analysis.
 
 Deeper color analysis and frequency-domain processing.
 
-- [ ] **50 — Color-Based Object Detection** — cv2.inRange with HSV, creating color masks
-- [ ] **51 — HSV Trackbar Color Picker** — Interactive HSV range tuning
-- [ ] **52 — Back Projection** — cv2.calcBackProject, histogram-based detection
-- [ ] **53 — Color Quantization** — K-means clustering on pixel colors
-- [ ] **54 — Fourier Transform** — cv2.dft, magnitude spectrum, frequency visualization
-- [ ] **55 — Frequency Domain Filtering** — Low-pass and high-pass filters in frequency domain
-- [ ] **56 — Image Inpainting** — cv2.inpaint, removing objects/text from images
-- [ ] **57 — Image Denoising** — cv2.fastNlMeansDenoisingColored, non-local means
-- [ ] **58 — Perspective Transform** — cv2.getPerspectiveTransform, cv2.warpPerspective
-- [ ] **59 — Affine Transform** — cv2.getAffineTransform, cv2.warpAffine, three-point mapping
+- [x] **50 — Color-Based Object Detection** — cv2.inRange with HSV, creating color masks
+- [x] **51 — HSV Trackbar Color Picker** — Interactive HSV range tuning
+- [x] **52 — Back Projection** — cv2.calcBackProject, histogram-based detection
+- [x] **53 — Color Quantization** — K-means clustering on pixel colors
+- [x] **54 — Fourier Transform** — cv2.dft, magnitude spectrum, frequency visualization
+- [x] **55 — Frequency Domain Filtering** — Low-pass and high-pass filters in frequency domain
+- [x] **56 — Image Inpainting** — cv2.inpaint, removing objects/text from images
+- [x] **57 — Image Denoising** — cv2.fastNlMeansDenoisingColored, non-local means
+- [x] **58 — Perspective Transform** — cv2.getPerspectiveTransform, cv2.warpPerspective
+- [x] **59 — Affine Transform** — cv2.getAffineTransform, cv2.warpAffine, three-point mapping
 
 ### Advanced — Feature Detection & Matching (Katas 60–69)
 
