@@ -40,18 +40,18 @@ Framework: FastAPI
 
 Database: SQLite
 
-OpenCV: opencv-python
+OpenCV: opencv-python-headless
 
 Update todo.md after each success
 
 No unnecessary frameworks or abstractions
 
-Code execution must be sandboxed and safe
+Code execution must be sandboxed and safe (subprocess + restricted globals)
 
 Frontend
 
 Framework: SolidJS
-CSS: Tailwind (no inline, create componenent/behaviour classes)
+CSS: Tailwind v4 (class-based components via @apply or utility classes)
 
 No React, Vue, Angular
 
@@ -63,7 +63,7 @@ Architecture
 
 API-driven
 
-Kata-as-data (not kata-as-code)
+Kata-as-data (Markdown files + YAML frontmatter)
 
 Clear separation of:
 
@@ -112,14 +112,6 @@ Explanation of OpenCV APIs used
 Tips, tricks, and common mistakes
 
 Visual or mental models where helpful
-
-Interactive Demo
-
-Sliders / toggles / dropdowns
-
-Real-time visual feedback
-
-Parameters mapped directly to OpenCV functions
 
 Live Code
 
@@ -252,11 +244,9 @@ Kata Header (title, level, concepts)
 
 Tabbed or split view:
 
-Technical Details
+Technical Details (Markdown renderer)
 
-Interactive Demo
-
-Live Code
+Live Code (Editor + Output)
 
 Image/Video Preview Panel
 
