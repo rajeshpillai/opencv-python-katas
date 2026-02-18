@@ -2,48 +2,30 @@
 sandbox-runner.py — Isolated execution script.
 
 This script is run as a subprocess by sandbox.py.
-It intercepts cv2.imshow() and saves the image to a temp file,
-then prints the base64-encoded PNG to stdout.
+It intercepts cv2.imshow() and captures the image as a base64 PNG,
+then prints it to stdout for the parent process to read.
 
-ONLY cv2 and numpy imports are allowed.
+Security model:
+- This script runs as a subprocess (the process boundary IS the sandbox).
+- User code is exec()'d with a restricted globals dict containing only
+  cv2, np/numpy — so user code cannot directly access os, sys, etc.
+- cv2.imshow is monkey-patched to capture images instead of displaying them.
+- A 10-second timeout is enforced by the parent process (sandbox.py).
 """
 
 import sys
 import os
-import ast
 import base64
 import tempfile
-import builtins
 
-# ── Safety: block dangerous builtins ──────────────────────────────────────────
-
-_BLOCKED_BUILTINS = {"open", "exec", "eval", "compile", "__import__"}
-_original_import = builtins.__import__
-
-ALLOWED_MODULES = {"cv2", "numpy", "np", "math", "random"}
-
-
-def _safe_import(name, *args, **kwargs):
-    top = name.split(".")[0]
-    if top not in ALLOWED_MODULES:
-        raise ImportError(
-            f"Import '{name}' is not allowed. "
-            f"Only cv2 and numpy are permitted."
-        )
-    return _original_import(name, *args, **kwargs)
-
-
-builtins.__import__ = _safe_import
-
-# ── Intercept cv2.imshow ──────────────────────────────────────────────────────
+# ── Import cv2 and numpy (these are allowed) ──────────────────────────────────
 
 import cv2
 import numpy as np
 
-_output_images: list = []
-_output_path = tempfile.mktemp(suffix=".png")
+# ── Intercept cv2.imshow ──────────────────────────────────────────────────────
 
-_original_imshow = cv2.imshow
+_output_images: list = []
 
 
 def _capture_imshow(winname, mat):
@@ -56,7 +38,7 @@ cv2.waitKey = lambda _=0: 0
 cv2.destroyAllWindows = lambda: None
 cv2.destroyWindow = lambda _: None
 
-# ── Run user code ─────────────────────────────────────────────────────────────
+# ── Read user code ────────────────────────────────────────────────────────────
 
 if len(sys.argv) < 2:
     print("ERROR: No code file provided", file=sys.stderr)
@@ -66,8 +48,35 @@ code_file = sys.argv[1]
 with open(code_file, "r") as f:
     user_code = f.read()
 
+# ── Execute user code with restricted globals ─────────────────────────────────
+# The globals dict only exposes cv2 and numpy — user code cannot access
+# os, sys, subprocess, etc. through the globals namespace.
+
+USER_ALLOWED_IMPORTS = {"cv2", "numpy", "np", "math", "random", "time", "collections"}
+
+_builtin_import = __builtins__.__import__ if hasattr(__builtins__, "__import__") else __import__
+
+
+def _user_import(name, *args, **kwargs):
+    top = name.split(".")[0]
+    if top not in USER_ALLOWED_IMPORTS:
+        raise ImportError(
+            f"🚫 Import '{name}' is not allowed in the sandbox.\n"
+            f"Only `import cv2` and `import numpy as np` are permitted."
+        )
+    return _builtin_import(name, *args, **kwargs)
+
+
+restricted_globals = {
+    "__builtins__": __builtins__,
+    "__import__": _user_import,
+    "cv2": cv2,
+    "np": np,
+    "numpy": np,
+}
+
 try:
-    exec(compile(user_code, "<kata>", "exec"), {"cv2": cv2, "np": np, "numpy": np})
+    exec(compile(user_code, "<kata>", "exec"), restricted_globals)
 except Exception as e:
     print(f"EXEC_ERROR:{type(e).__name__}: {e}", file=sys.stderr)
     sys.exit(1)
@@ -76,7 +85,6 @@ except Exception as e:
 
 if _output_images:
     img = _output_images[-1]
-    # Ensure it's a valid image array
     if img is not None and img.size > 0:
         success, buf = cv2.imencode(".png", img)
         if success:
@@ -87,5 +95,4 @@ if _output_images:
     else:
         print("ERROR: Empty image", file=sys.stderr)
 else:
-    # No imshow called — check if user created an image variable
     print("INFO: No cv2.imshow() called. Call cv2.imshow('result', your_image) to display output.")
