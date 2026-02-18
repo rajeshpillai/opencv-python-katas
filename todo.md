@@ -158,3 +158,66 @@ End-to-end projects combining multiple techniques.
 - [x] **97 — Augmented Reality Overlay** — Marker detection → homography → overlay image
 - [x] **98 — Performance Optimization** — UMat (GPU), vectorized NumPy, avoiding Python loops
 - [x] **99 — Building a CV Pipeline Framework** — Composable stages, error handling, benchmarking
+
+---
+
+## Live Camera & Video Projects (Katas 100+)
+
+Real-world projects using actual webcam/camera feeds. These katas combine
+techniques from earlier lessons into practical, runnable applications.
+All starter code uses `cv2.VideoCapture(0)` with a real camera.
+
+Legend: `[x]` = implemented, `[ ]` = planned
+
+### Live Camera — Foundations (Katas 100–104)
+
+Setting up robust camera pipelines and real-time display patterns.
+
+- [ ] **100 — Live Camera Feed with FPS Overlay** — VideoCapture loop, FPS calculation, graceful exit, resolution setting
+- [ ] **101 — Live Edge Detection** — Real-time Canny on webcam, trackbar-controlled thresholds
+- [ ] **102 — Live Color Picker** — Click on webcam feed to get BGR/HSV values, crosshair overlay
+- [ ] **103 — Live Histogram Display** — Real-time histogram alongside camera feed, per-channel visualization
+- [ ] **104 — Live Split-Screen Filters** — Show original + multiple filters (gray, blur, edges) in a 2x2 grid
+
+### Live Camera — Detection & Tracking (Katas 105–112)
+
+Real-time detection and object tracking with a physical camera.
+
+- [ ] **105 — Live Face Detection & Counting** — Haar cascade on webcam, face count overlay, bounding boxes
+- [ ] **106 — Live Eye & Smile Detection** — Nested cascades on webcam, ROI-based eye/smile detection
+- [ ] **107 — Live Color Object Tracking** — HSV masking on webcam, track a colored object, draw trail
+- [ ] **108 — Live Motion Detection Alarm** — Frame differencing on webcam, motion zones, visual alert
+- [ ] **109 — Live Hand Detection** — Skin-color segmentation, convex hull, finger counting
+- [ ] **110 — Live Object Tracking with Selection** — Click-to-select ROI, CSRT tracker on webcam feed
+- [ ] **111 — Live People Counter (Line Crossing)** — Background subtraction + centroid tracking, count crosses
+- [ ] **112 — Live Multi-Object Color Tracker** — Track multiple colored objects simultaneously, ID assignment
+
+### Live Camera — AR & Visual Effects (Katas 113–117)
+
+Augmented reality overlays and creative visual effects on live video.
+
+- [ ] **113 — Live Face Blur (Privacy Filter)** — Detect + blur faces in real-time, toggle pixelation vs gaussian
+- [ ] **114 — Live Virtual Sunglasses** — Detect eyes, overlay sunglasses image with alpha blending
+- [ ] **115 — Live Background Removal** — GrabCut/MOG2 background subtraction, replace with solid color or image
+- [ ] **116 — Live Cartoon Effect** — Bilateral filter + edge mask for cartoon/comic look on webcam
+- [ ] **117 — Live Mirror & Kaleidoscope** — Split, flip, and tile webcam for mirror/kaleidoscope effects
+
+### Live Camera — Measurement & Analysis (Katas 118–122)
+
+Practical measurement and analysis tools using live camera.
+
+- [ ] **118 — Live QR Code Scanner** — Detect, decode, and highlight QR codes in real-time
+- [ ] **119 — Live Document Edge Detection** — Real-time contour detection for document capture, perspective guide
+- [ ] **120 — Live Color Dominant Analyzer** — K-means on live frames, show dominant colors palette
+- [ ] **121 — Live Brightness & Contrast Monitor** — Real-time histogram stats, exposure warning indicators
+- [ ] **122 — Live Object Size Estimation** — Reference object calibration, measure real-world dimensions
+
+### Live Camera — Advanced Projects (Katas 123–127)
+
+Multi-technique projects combining detection, tracking, and analysis.
+
+- [ ] **123 — Live Motion Heatmap** — Accumulated frame differences, real-time heatmap overlay
+- [ ] **124 — Live Speed Estimation** — Track object centroids between frames, estimate px/s velocity
+- [ ] **125 — Live Gesture-Controlled Drawing** — Draw on canvas with colored object or finger as a pen
+- [ ] **126 — Live Security Camera System** — Motion detection + face logging + timestamp + recording trigger
+- [ ] **127 — Live Video Streaming Dashboard** — Multi-camera grid, per-feed processing, stats overlay
