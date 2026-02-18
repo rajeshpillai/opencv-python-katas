@@ -7,7 +7,6 @@ todo.md
 
 # Dev scripts (keep scripts/ but exclude publish script itself)
 scripts/publish-oss.sh
-start_dev.sh
 
 # Environment / secrets
 .env
