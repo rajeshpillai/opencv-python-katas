@@ -103,16 +103,16 @@ Deeper color analysis and frequency-domain processing.
 
 Keypoints, descriptors, and matching for recognition tasks.
 
-- [ ] **60 — Harris Corner Detection** — cv2.cornerHarris, corner response, non-max suppression
-- [ ] **61 — Shi-Tomasi Corners** — cv2.goodFeaturesToTrack, quality level, min distance
-- [ ] **62 — FAST Keypoint Detection** — cv2.FastFeatureDetector, real-time corners
-- [ ] **63 — ORB Descriptors** — cv2.ORB_create, keypoints + descriptors, oriented BRIEF
-- [ ] **64 — SIFT Descriptors** — cv2.SIFT_create, scale-invariant features
-- [ ] **65 — Brute-Force Matching** — cv2.BFMatcher, Hamming vs L2 distance, crossCheck
-- [ ] **66 — FLANN Matching** — cv2.FlannBasedMatcher, KD-tree, faster matching
-- [ ] **67 — Homography & Warping** — cv2.findHomography, RANSAC, perspective correction
-- [ ] **68 — Image Stitching Basics** — Feature matching → homography → panorama
-- [ ] **69 — Template Matching** — cv2.matchTemplate, TM_CCOEFF_NORMED, multi-scale
+- [x] **60 — Harris Corner Detection** — cv2.cornerHarris, corner response, non-max suppression
+- [x] **61 — Shi-Tomasi Corners** — cv2.goodFeaturesToTrack, quality level, min distance
+- [x] **62 — FAST Keypoint Detection** — cv2.FastFeatureDetector, real-time corners
+- [x] **63 — ORB Descriptors** — cv2.ORB_create, keypoints + descriptors, oriented BRIEF
+- [x] **64 — SIFT Descriptors** — cv2.SIFT_create, scale-invariant features
+- [x] **65 — Brute-Force Matching** — cv2.BFMatcher, Hamming vs L2 distance, crossCheck
+- [x] **66 — FLANN Matching** — cv2.FlannBasedMatcher, KD-tree, faster matching
+- [x] **67 — Homography & Warping** — cv2.findHomography, RANSAC, perspective correction
+- [x] **68 — Image Stitching Basics** — Feature matching → homography → panorama
+- [x] **69 — Template Matching** — cv2.matchTemplate, TM_CCOEFF_NORMED, multi-scale
 
 ### Advanced — Video & Real-Time (Katas 70–79)
 
