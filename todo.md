@@ -59,13 +59,13 @@ Image filtering, edge detection, morphology, and contour analysis.
 - [x] **23 — Bilateral Filter** — cv2.bilateralFilter, edge-preserving smoothing
 - [x] **24 — Image Sharpening** — Kernel convolution, unsharp masking, cv2.filter2D
 - [x] **25 — Custom Kernels & Convolution** — cv2.filter2D, designing custom filters
-- [ ] **26 — Simple Thresholding** — cv2.threshold, THRESH_BINARY, THRESH_TRUNC, THRESH_TOZERO
-- [ ] **27 — Adaptive Thresholding** — cv2.adaptiveThreshold, MEAN vs GAUSSIAN, blockSize
-- [ ] **28 — Otsu's Thresholding** — Automatic threshold selection, bimodal histograms
-- [ ] **29 — Sobel Edge Detection** — cv2.Sobel, gradient direction, dx/dy
-- [ ] **30 — Scharr Operator** — cv2.Scharr, better accuracy than Sobel for small kernels
-- [ ] **31 — Laplacian Edge Detection** — cv2.Laplacian, second-order derivatives
-- [ ] **32 — Canny Edge Detection** — cv2.Canny, double thresholds, non-maximum suppression
+- [x] **26 — Simple Thresholding** — cv2.threshold, THRESH_BINARY, THRESH_TRUNC, THRESH_TOZERO
+- [x] **27 — Adaptive Thresholding** — cv2.adaptiveThreshold, MEAN vs GAUSSIAN, blockSize
+- [x] **28 — Otsu's Thresholding** — Automatic threshold selection, bimodal histograms
+- [x] **29 — Sobel Edge Detection** — cv2.Sobel, gradient direction, dx/dy
+- [x] **30 — Scharr Operator** — cv2.Scharr, better accuracy than Sobel for small kernels
+- [x] **31 — Laplacian Edge Detection** — cv2.Laplacian, second-order derivatives
+- [x] **32 — Canny Edge Detection** — cv2.Canny, double thresholds, non-maximum suppression
 - [ ] **33 — Morphology: Erosion** — cv2.erode, structuring elements, iteration count
 - [ ] **34 — Morphology: Dilation** — cv2.dilate, expanding regions, filling gaps
 - [ ] **35 — Morphology: Opening & Closing** — cv2.morphologyEx, noise removal strategies
