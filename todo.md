@@ -42,9 +42,9 @@ Core building blocks. Every kata after this assumes these are mastered.
 - [x] **11 — Image Translation** — cv2.warpAffine with translation matrix
 - [x] **12 — Image Arithmetic** — cv2.add, cv2.subtract, saturation vs modulo arithmetic
 - [x] **13 — Image Blending** — cv2.addWeighted, alpha blending, transparency
-- [ ] **14 — Bitwise Operations** — cv2.bitwise_and/or/xor/not, masking basics
-- [ ] **15 — Creating Masks** — Binary masks from thresholds, combining masks
-- [ ] **16 — Image Padding & Borders** — cv2.copyMakeBorder, BORDER_CONSTANT, BORDER_REFLECT
+- [x] **14 — Bitwise Operations** — cv2.bitwise_and/or/xor/not, masking basics
+- [x] **15 — Creating Masks** — Binary masks from thresholds, combining masks
+- [x] **16 — Image Padding & Borders** — cv2.copyMakeBorder, BORDER_CONSTANT, BORDER_REFLECT
 - [ ] **17 — Image Channels: Split & Merge** — cv2.split, cv2.merge, single-channel visualization
 - [ ] **18 — Understanding Histograms** — cv2.calcHist, plotting pixel intensity distributions
 - [ ] **19 — Histogram Equalization** — cv2.equalizeHist, CLAHE, improving contrast
