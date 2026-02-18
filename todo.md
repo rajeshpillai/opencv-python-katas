@@ -118,16 +118,16 @@ Keypoints, descriptors, and matching for recognition tasks.
 
 Processing video streams frame by frame.
 
-- [ ] **70 — Reading Video Files** — cv2.VideoCapture from file, frame-by-frame loop
-- [ ] **71 — Webcam Capture** — cv2.VideoCapture(0), live feed processing
-- [ ] **72 — Writing Video Files** — cv2.VideoWriter, codec selection, FourCC
-- [ ] **73 — Frame Differencing** — Background subtraction via frame delta, motion detection
-- [ ] **74 — MOG2 Background Subtractor** — cv2.createBackgroundSubtractorMOG2
-- [ ] **75 — Optical Flow (Dense)** — cv2.calcOpticalFlowFarneback, motion field visualization
-- [ ] **76 — Optical Flow (Sparse)** — cv2.calcOpticalFlowPyrLK, Lucas-Kanade tracking
-- [ ] **77 — Object Tracking: CSRT** — cv2.TrackerCSRT, ROI selection, real-time tracking
-- [ ] **78 — Multi-Object Tracking** — cv2.MultiTracker, tracking multiple ROIs
-- [ ] **79 — Video Stabilization** — Feature matching between frames, affine correction
+- [x] **70 — Reading Video Files** — cv2.VideoCapture from file, frame-by-frame loop
+- [x] **71 — Webcam Capture** — cv2.VideoCapture(0), live feed processing
+- [x] **72 — Writing Video Files** — cv2.VideoWriter, codec selection, FourCC
+- [x] **73 — Frame Differencing** — Background subtraction via frame delta, motion detection
+- [x] **74 — MOG2 Background Subtractor** — cv2.createBackgroundSubtractorMOG2
+- [x] **75 — Optical Flow (Dense)** — cv2.calcOpticalFlowFarneback, motion field visualization
+- [x] **76 — Optical Flow (Sparse)** — cv2.calcOpticalFlowPyrLK, Lucas-Kanade tracking
+- [x] **77 — Object Tracking: CSRT** — cv2.TrackerCSRT, ROI selection, real-time tracking
+- [x] **78 — Multi-Object Tracking** — cv2.MultiTracker, tracking multiple ROIs
+- [x] **79 — Video Stabilization** — Feature matching between frames, affine correction
 
 ### Advanced — Detection & Recognition (Katas 80–89)
 
