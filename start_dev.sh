@@ -13,7 +13,7 @@ trap cleanup SIGINT
 # Start Backend
 echo "Starting Backend..."
 source .venv/bin/activate
-uvicorn backend.main:app --reload --port 8000 &
+uvicorn backend.main:app --reload --reload-include "*.md" --port 8000 &
 BACKEND_PID=$!
 
 # Start Frontend
