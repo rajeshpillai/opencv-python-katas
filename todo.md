@@ -1,43 +1,159 @@
 # OpenCV Interactive Playground — TODO
 
-## Phase 1: Backend
-- [x] Create project folder structure
-- [x] `backend/requirements.txt`
-- [x] `backend/main.py` — FastAPI app entry
-- [x] `backend/models/db.py` — SQLite init + schema
-- [x] `backend/models/schemas.py` — Pydantic schemas
-- [x] `backend/executor/sandbox.py` — subprocess-based safe execution
-- [x] `backend/executor/sandbox-runner.py` — isolated runner script
-- [x] `backend/routers/execute.py` — POST /api/execute
-- [x] `backend/routers/katas.py` — GET /api/katas, GET /api/katas/{slug}
-- [x] `backend/routers/auth.py` — POST /api/auth/register, POST /api/auth/login
+## Platform Status
 
-## Phase 2: Kata Data
-- [x] `backend/data/katas/00-image-loading.json`
-- [x] `backend/data/katas/01-color-spaces.json`
-- [x] `backend/data/katas/02-pixel-access.json`
+### Phase 1: Backend
+- [x] Project folder structure
+- [x] FastAPI app, SQLite, Pydantic schemas
+- [x] Sandboxed code execution (subprocess)
+- [x] Kata, execute, and auth API routes
+- [x] Kata seeding from Markdown + YAML frontmatter
 
-## Phase 3: Frontend
-- [x] Scaffold SolidJS + Vite project in `frontend/`
-- [x] `frontend/src/api/client.ts` — API client
-- [x] `frontend/src/components/kata-sidebar.tsx`
-- [x] `frontend/src/components/kata-header.tsx`
-- [x] `frontend/src/components/code-editor.tsx` — Monaco Editor
-- [x] `frontend/src/components/output-panel.tsx`
-- [x] `frontend/src/components/demo-panel.tsx`
-- [x] `frontend/src/pages/kata-page.tsx`
-- [x] `frontend/src/App.tsx` — routing + layout
-- [x] `frontend/src/index.css` + `components.css` — Tailwind v4 dark theme, class-based
-
-## Phase 4: Verification
-- [x] Run backend, test /api/execute with curl ✅ returns base64 image
-- [x] GET /api/katas returns all 3 katas ✅
-- [x] README.md with setup + run instructions ✅
-- [x] Initial git commit + pushed to GitHub ✅
-- [ ] End-to-end: write code in editor → run → see image output (manual)
-
-## Next Steps
-- [ ] Add more katas (drop JSON files in `backend/data/katas/`)
+### Phase 2: Frontend
+- [x] SolidJS + Vite scaffold
+- [x] API client, sidebar, header, editor, output panel
+- [x] Routing, dark/light theme, reactive sidebar active state
 - [ ] Wire auth into frontend (login/register UI)
-- [ ] Interactive demo sliders in `demo-panel.tsx`
-- [ ] Start frontend dev server and verify full UI flow
+- [ ] Interactive demo sliders in demo-panel
+- [ ] End-to-end verification: editor → run → see output
+
+---
+
+## Kata Roadmap (100 Katas)
+
+Legend: `[x]` = implemented, `[ ]` = planned
+
+### Beginner — Foundations (Katas 00–19)
+
+Core building blocks. Every kata after this assumes these are mastered.
+
+- [x] **00 — OpenCV Basics** — What is OpenCV, images as arrays, BGR, coordinate system, uint8
+- [x] **01 — Image Loading & Display** — cv2.imread, np.zeros, img.shape, cv2.imshow
+- [x] **02 — Color Spaces** — cv2.cvtColor, BGR, Grayscale, HSV, RGB
+- [x] **03 — Pixel Access & Manipulation** — numpy indexing, ROI, array slicing, channel access
+- [ ] **04 — Drawing Lines & Rectangles** — cv2.line, cv2.rectangle, thickness, color
+- [ ] **05 — Drawing Circles & Ellipses** — cv2.circle, cv2.ellipse, filled vs outlined
+- [ ] **06 — Drawing Text** — cv2.putText, font faces, scale, baseline calculation
+- [ ] **07 — Image Resizing** — cv2.resize, fx/fy, INTER_LINEAR vs INTER_AREA vs INTER_CUBIC
+- [ ] **08 — Image Cropping** — NumPy slicing for cropping, aspect ratio preservation
+- [ ] **09 — Image Rotation** — cv2.getRotationMatrix2D, cv2.warpAffine, center rotation
+- [ ] **10 — Image Flipping** — cv2.flip (horizontal, vertical, both)
+- [ ] **11 — Image Translation** — cv2.warpAffine with translation matrix
+- [ ] **12 — Image Arithmetic** — cv2.add, cv2.subtract, saturation vs modulo arithmetic
+- [ ] **13 — Image Blending** — cv2.addWeighted, alpha blending, transparency
+- [ ] **14 — Bitwise Operations** — cv2.bitwise_and/or/xor/not, masking basics
+- [ ] **15 — Creating Masks** — Binary masks from thresholds, combining masks
+- [ ] **16 — Image Padding & Borders** — cv2.copyMakeBorder, BORDER_CONSTANT, BORDER_REFLECT
+- [ ] **17 — Image Channels: Split & Merge** — cv2.split, cv2.merge, single-channel visualization
+- [ ] **18 — Understanding Histograms** — cv2.calcHist, plotting pixel intensity distributions
+- [ ] **19 — Histogram Equalization** — cv2.equalizeHist, CLAHE, improving contrast
+
+### Intermediate — Core Processing (Katas 20–49)
+
+Image filtering, edge detection, morphology, and contour analysis.
+
+- [ ] **20 — Smoothing: Averaging & Box Filter** — cv2.blur, cv2.boxFilter, kernel size effects
+- [ ] **21 — Gaussian Blur** — cv2.GaussianBlur, sigma, noise reduction
+- [ ] **22 — Median Blur** — cv2.medianBlur, salt-and-pepper noise removal
+- [ ] **23 — Bilateral Filter** — cv2.bilateralFilter, edge-preserving smoothing
+- [ ] **24 — Image Sharpening** — Kernel convolution, unsharp masking, cv2.filter2D
+- [ ] **25 — Custom Kernels & Convolution** — cv2.filter2D, designing custom filters
+- [ ] **26 — Simple Thresholding** — cv2.threshold, THRESH_BINARY, THRESH_TRUNC, THRESH_TOZERO
+- [ ] **27 — Adaptive Thresholding** — cv2.adaptiveThreshold, MEAN vs GAUSSIAN, blockSize
+- [ ] **28 — Otsu's Thresholding** — Automatic threshold selection, bimodal histograms
+- [ ] **29 — Sobel Edge Detection** — cv2.Sobel, gradient direction, dx/dy
+- [ ] **30 — Scharr Operator** — cv2.Scharr, better accuracy than Sobel for small kernels
+- [ ] **31 — Laplacian Edge Detection** — cv2.Laplacian, second-order derivatives
+- [ ] **32 — Canny Edge Detection** — cv2.Canny, double thresholds, non-maximum suppression
+- [ ] **33 — Morphology: Erosion** — cv2.erode, structuring elements, iteration count
+- [ ] **34 — Morphology: Dilation** — cv2.dilate, expanding regions, filling gaps
+- [ ] **35 — Morphology: Opening & Closing** — cv2.morphologyEx, noise removal strategies
+- [ ] **36 — Morphology: Gradient, TopHat, BlackHat** — Advanced morphological operations
+- [ ] **37 — Connected Components** — cv2.connectedComponents, labeling regions
+- [ ] **38 — Finding Contours** — cv2.findContours, RETR modes, CHAIN_APPROX methods
+- [ ] **39 — Contour Properties** — cv2.contourArea, cv2.arcLength, bounding boxes
+- [ ] **40 — Contour Drawing & Filtering** — cv2.drawContours, filtering by area/shape
+- [ ] **41 — Convex Hull & Defects** — cv2.convexHull, cv2.convexityDefects
+- [ ] **42 — Contour Approximation** — cv2.approxPolyDP, shape simplification, epsilon
+- [ ] **43 — Shape Detection** — Classifying contours as triangle, rectangle, circle
+- [ ] **44 — Moments & Centroids** — cv2.moments, center of mass, hu moments
+- [ ] **45 — Bounding Shapes** — cv2.boundingRect, cv2.minAreaRect, cv2.minEnclosingCircle
+- [ ] **46 — Flood Fill** — cv2.floodFill, magic wand-style selection
+- [ ] **47 — Watershed Algorithm** — cv2.watershed, marker-based segmentation
+- [ ] **48 — GrabCut Segmentation** — cv2.grabCut, foreground extraction
+- [ ] **49 — Distance Transform** — cv2.distanceTransform, skeleton extraction
+
+### Intermediate — Color & Frequency Domain (Katas 50–59)
+
+Deeper color analysis and frequency-domain processing.
+
+- [ ] **50 — Color-Based Object Detection** — cv2.inRange with HSV, creating color masks
+- [ ] **51 — HSV Trackbar Color Picker** — Interactive HSV range tuning
+- [ ] **52 — Back Projection** — cv2.calcBackProject, histogram-based detection
+- [ ] **53 — Color Quantization** — K-means clustering on pixel colors
+- [ ] **54 — Fourier Transform** — cv2.dft, magnitude spectrum, frequency visualization
+- [ ] **55 — Frequency Domain Filtering** — Low-pass and high-pass filters in frequency domain
+- [ ] **56 — Image Inpainting** — cv2.inpaint, removing objects/text from images
+- [ ] **57 — Image Denoising** — cv2.fastNlMeansDenoisingColored, non-local means
+- [ ] **58 — Perspective Transform** — cv2.getPerspectiveTransform, cv2.warpPerspective
+- [ ] **59 — Affine Transform** — cv2.getAffineTransform, cv2.warpAffine, three-point mapping
+
+### Advanced — Feature Detection & Matching (Katas 60–69)
+
+Keypoints, descriptors, and matching for recognition tasks.
+
+- [ ] **60 — Harris Corner Detection** — cv2.cornerHarris, corner response, non-max suppression
+- [ ] **61 — Shi-Tomasi Corners** — cv2.goodFeaturesToTrack, quality level, min distance
+- [ ] **62 — FAST Keypoint Detection** — cv2.FastFeatureDetector, real-time corners
+- [ ] **63 — ORB Descriptors** — cv2.ORB_create, keypoints + descriptors, oriented BRIEF
+- [ ] **64 — SIFT Descriptors** — cv2.SIFT_create, scale-invariant features
+- [ ] **65 — Brute-Force Matching** — cv2.BFMatcher, Hamming vs L2 distance, crossCheck
+- [ ] **66 — FLANN Matching** — cv2.FlannBasedMatcher, KD-tree, faster matching
+- [ ] **67 — Homography & Warping** — cv2.findHomography, RANSAC, perspective correction
+- [ ] **68 — Image Stitching Basics** — Feature matching → homography → panorama
+- [ ] **69 — Template Matching** — cv2.matchTemplate, TM_CCOEFF_NORMED, multi-scale
+
+### Advanced — Video & Real-Time (Katas 70–79)
+
+Processing video streams frame by frame.
+
+- [ ] **70 — Reading Video Files** — cv2.VideoCapture from file, frame-by-frame loop
+- [ ] **71 — Webcam Capture** — cv2.VideoCapture(0), live feed processing
+- [ ] **72 — Writing Video Files** — cv2.VideoWriter, codec selection, FourCC
+- [ ] **73 — Frame Differencing** — Background subtraction via frame delta, motion detection
+- [ ] **74 — MOG2 Background Subtractor** — cv2.createBackgroundSubtractorMOG2
+- [ ] **75 — Optical Flow (Dense)** — cv2.calcOpticalFlowFarneback, motion field visualization
+- [ ] **76 — Optical Flow (Sparse)** — cv2.calcOpticalFlowPyrLK, Lucas-Kanade tracking
+- [ ] **77 — Object Tracking: CSRT** — cv2.TrackerCSRT, ROI selection, real-time tracking
+- [ ] **78 — Multi-Object Tracking** — cv2.MultiTracker, tracking multiple ROIs
+- [ ] **79 — Video Stabilization** — Feature matching between frames, affine correction
+
+### Advanced — Detection & Recognition (Katas 80–89)
+
+Classical detection pipelines and pre-trained models.
+
+- [ ] **80 — Haar Cascade: Face Detection** — cv2.CascadeClassifier, detectMultiScale
+- [ ] **81 — Haar Cascade: Eye & Smile Detection** — Nested cascades, ROI-based detection
+- [ ] **82 — HOG Pedestrian Detection** — cv2.HOGDescriptor, detectMultiScale
+- [ ] **83 — QR Code & Barcode Detection** — cv2.QRCodeDetector, decode and locate
+- [ ] **84 — Text Detection with EAST** — cv2.dnn with EAST model, text bounding boxes
+- [ ] **85 — DNN: Loading Pre-trained Models** — cv2.dnn.readNet, blob creation, forward pass
+- [ ] **86 — DNN: Image Classification** — MobileNet/ResNet classification with OpenCV DNN
+- [ ] **87 — DNN: Object Detection (SSD)** — Single-shot detection, bounding boxes + confidence
+- [ ] **88 — DNN: Object Detection (YOLO)** — YOLO with OpenCV DNN, NMS post-processing
+- [ ] **89 — DNN: Semantic Segmentation** — FCN/DeepLab with OpenCV DNN, pixel-wise labels
+
+### Expert — Real-World Pipelines (Katas 90–99)
+
+End-to-end projects combining multiple techniques.
+
+- [ ] **90 — Document Scanner** — Edge detection → contour → perspective transform → threshold
+- [ ] **91 — Lane Detection** — ROI masking → Canny → Hough lines → lane overlay
+- [ ] **92 — Panorama Stitching Pipeline** — Multi-image feature matching → homography → blend
+- [ ] **93 — Face Blurring Pipeline** — Haar detection → Gaussian blur on detected regions
+- [ ] **94 — Motion Heatmap** — Accumulate frame differences → colorize → overlay
+- [ ] **95 — Color-Based Object Tracker** — HSV mask → contours → centroid tracking
+- [ ] **96 — Image Comparison & Similarity** — SSIM, histogram comparison, feature matching
+- [ ] **97 — Augmented Reality Overlay** — Marker detection → homography → overlay image
+- [ ] **98 — Performance Optimization** — UMat (GPU), vectorized NumPy, avoiding Python loops
+- [ ] **99 — Building a CV Pipeline Framework** — Composable stages, error handling, benchmarking
