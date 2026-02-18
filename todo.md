@@ -53,12 +53,12 @@ Core building blocks. Every kata after this assumes these are mastered.
 
 Image filtering, edge detection, morphology, and contour analysis.
 
-- [ ] **20 — Smoothing: Averaging & Box Filter** — cv2.blur, cv2.boxFilter, kernel size effects
-- [ ] **21 — Gaussian Blur** — cv2.GaussianBlur, sigma, noise reduction
-- [ ] **22 — Median Blur** — cv2.medianBlur, salt-and-pepper noise removal
-- [ ] **23 — Bilateral Filter** — cv2.bilateralFilter, edge-preserving smoothing
-- [ ] **24 — Image Sharpening** — Kernel convolution, unsharp masking, cv2.filter2D
-- [ ] **25 — Custom Kernels & Convolution** — cv2.filter2D, designing custom filters
+- [x] **20 — Smoothing: Averaging & Box Filter** — cv2.blur, cv2.boxFilter, kernel size effects
+- [x] **21 — Gaussian Blur** — cv2.GaussianBlur, sigma, noise reduction
+- [x] **22 — Median Blur** — cv2.medianBlur, salt-and-pepper noise removal
+- [x] **23 — Bilateral Filter** — cv2.bilateralFilter, edge-preserving smoothing
+- [x] **24 — Image Sharpening** — Kernel convolution, unsharp masking, cv2.filter2D
+- [x] **25 — Custom Kernels & Convolution** — cv2.filter2D, designing custom filters
 - [ ] **26 — Simple Thresholding** — cv2.threshold, THRESH_BINARY, THRESH_TRUNC, THRESH_TOZERO
 - [ ] **27 — Adaptive Thresholding** — cv2.adaptiveThreshold, MEAN vs GAUSSIAN, blockSize
 - [ ] **28 — Otsu's Thresholding** — Automatic threshold selection, bimodal histograms
