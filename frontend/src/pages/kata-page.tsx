@@ -1,5 +1,5 @@
 /**
- * kata-page.tsx — Main kata view with three tabs: Details, Demo, Code.
+ * kata-page.tsx — Main kata view with two tabs: Details and Code.
  */
 
 import { Component, createSignal, createResource, Show } from "solid-js";
@@ -11,7 +11,7 @@ import DemoPanel from "../components/demo-panel";
 import CodeEditor from "../components/code-editor";
 import OutputPanel from "../components/output-panel";
 
-type Tab = "details" | "demo" | "code";
+type Tab = "details" | "code";
 
 const KataPage: Component = () => {
     const params = useParams<{ slug: string }>();
@@ -22,10 +22,8 @@ const KataPage: Component = () => {
     const [result, setResult] = createSignal<ExecuteResult | null>(null);
     const [running, setRunning] = createSignal(false);
 
-    // When kata loads, seed the editor with starter code
     const starterCode = () => kata()?.starter_code ?? "";
 
-    // Reset code to starter when kata changes
     const handleReset = () => {
         setCode(starterCode());
         setResult(null);
@@ -62,29 +60,26 @@ const KataPage: Component = () => {
 
                         {/* Tab bar */}
                         <div class="kata-tabs">
-                            {(["details", "demo", "code"] as Tab[]).map((tab) => (
-                                <button
-                                    class="kata-tab"
-                                    classList={{ "kata-tab--active": activeTab() === tab }}
-                                    onClick={() => setActiveTab(tab)}
-                                >
-                                    {tab === "details" ? "📖 Details" : tab === "demo" ? "🎛 Demo" : "💻 Code"}
-                                </button>
-                            ))}
+                            <button
+                                class="kata-tab"
+                                classList={{ "kata-tab--active": activeTab() === "details" }}
+                                onClick={() => setActiveTab("details")}
+                            >
+                                📖 Details
+                            </button>
+                            <button
+                                class="kata-tab"
+                                classList={{ "kata-tab--active": activeTab() === "code" }}
+                                onClick={() => setActiveTab("code")}
+                            >
+                                💻 Code
+                            </button>
                         </div>
 
                         {/* Tab content */}
                         <div class="kata-tab-content">
                             <Show when={activeTab() === "details"}>
                                 <DemoPanel kata={k()} />
-                            </Show>
-
-                            <Show when={activeTab() === "demo"}>
-                                <div class="kata-demo-placeholder">
-                                    <p class="kata-demo-placeholder-text">
-                                        Interactive demo controls coming soon. Use the <strong>Code</strong> tab to experiment.
-                                    </p>
-                                </div>
                             </Show>
 
                             <Show when={activeTab() === "code"}>
