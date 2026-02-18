@@ -38,9 +38,9 @@ Core building blocks. Every kata after this assumes these are mastered.
 - [x] **08 — Image Cropping** — NumPy slicing for cropping, aspect ratio preservation
 - [x] **09 — Image Rotation** — cv2.getRotationMatrix2D, cv2.warpAffine, center rotation
 - [x] **10 — Image Flipping** — cv2.flip (horizontal, vertical, both)
-- [ ] **11 — Image Translation** — cv2.warpAffine with translation matrix
-- [ ] **12 — Image Arithmetic** — cv2.add, cv2.subtract, saturation vs modulo arithmetic
-- [ ] **13 — Image Blending** — cv2.addWeighted, alpha blending, transparency
+- [x] **11 — Image Translation** — cv2.warpAffine with translation matrix
+- [x] **12 — Image Arithmetic** — cv2.add, cv2.subtract, saturation vs modulo arithmetic
+- [x] **13 — Image Blending** — cv2.addWeighted, alpha blending, transparency
 - [ ] **14 — Bitwise Operations** — cv2.bitwise_and/or/xor/not, masking basics
 - [ ] **15 — Creating Masks** — Binary masks from thresholds, combining masks
 - [ ] **16 — Image Padding & Borders** — cv2.copyMakeBorder, BORDER_CONSTANT, BORDER_REFLECT
