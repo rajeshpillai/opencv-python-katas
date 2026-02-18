@@ -118,9 +118,7 @@ def run_local(code: str) -> dict:
 
     try:
         proc = subprocess.Popen(
-            [sys.executable, tmp_path],
-            stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE,
+            [sys.executable, "-u", tmp_path],
         )
 
         with _active_local_lock:
