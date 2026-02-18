@@ -12,12 +12,13 @@ interface Props {
     currentSlug: string;
 }
 
-const LEVEL_ORDER = ["beginner", "intermediate", "advanced"] as const;
+const LEVEL_ORDER = ["beginner", "intermediate", "advanced", "live"] as const;
 
 const LEVEL_LABELS: Record<string, string> = {
     beginner: "Beginner",
     intermediate: "Intermediate",
     advanced: "Advanced",
+    live: "Live Camera",
 };
 
 const KataSidebar: Component<Props> = (props) => {

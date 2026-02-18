@@ -173,11 +173,11 @@ Legend: `[x]` = implemented, `[ ]` = planned
 
 Setting up robust camera pipelines and real-time display patterns.
 
-- [ ] **100 — Live Camera Feed with FPS Overlay** — VideoCapture loop, FPS calculation, graceful exit, resolution setting
-- [ ] **101 — Live Edge Detection** — Real-time Canny on webcam, trackbar-controlled thresholds
-- [ ] **102 — Live Color Picker** — Click on webcam feed to get BGR/HSV values, crosshair overlay
-- [ ] **103 — Live Histogram Display** — Real-time histogram alongside camera feed, per-channel visualization
-- [ ] **104 — Live Split-Screen Filters** — Show original + multiple filters (gray, blur, edges) in a 2x2 grid
+- [x] **100 — Live Camera Feed with FPS Overlay** — VideoCapture loop, FPS calculation, graceful exit, resolution setting
+- [x] **101 — Live Edge Detection** — Real-time Canny on webcam, trackbar-controlled thresholds
+- [x] **102 — Live Color Picker** — Click on webcam feed to get BGR/HSV values, crosshair overlay
+- [x] **103 — Live Histogram Display** — Real-time histogram alongside camera feed, per-channel visualization
+- [x] **104 — Live Split-Screen Filters** — Show original + multiple filters (gray, blur, edges) in a 2x2 grid
 
 ### Live Camera — Detection & Tracking (Katas 105–112)
 
