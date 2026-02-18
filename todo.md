@@ -31,13 +31,13 @@ Core building blocks. Every kata after this assumes these are mastered.
 - [x] **01 — Image Loading & Display** — cv2.imread, np.zeros, img.shape, cv2.imshow
 - [x] **02 — Color Spaces** — cv2.cvtColor, BGR, Grayscale, HSV, RGB
 - [x] **03 — Pixel Access & Manipulation** — numpy indexing, ROI, array slicing, channel access
-- [ ] **04 — Drawing Lines & Rectangles** — cv2.line, cv2.rectangle, thickness, color
-- [ ] **05 — Drawing Circles & Ellipses** — cv2.circle, cv2.ellipse, filled vs outlined
-- [ ] **06 — Drawing Text** — cv2.putText, font faces, scale, baseline calculation
-- [ ] **07 — Image Resizing** — cv2.resize, fx/fy, INTER_LINEAR vs INTER_AREA vs INTER_CUBIC
-- [ ] **08 — Image Cropping** — NumPy slicing for cropping, aspect ratio preservation
-- [ ] **09 — Image Rotation** — cv2.getRotationMatrix2D, cv2.warpAffine, center rotation
-- [ ] **10 — Image Flipping** — cv2.flip (horizontal, vertical, both)
+- [x] **04 — Drawing Lines & Rectangles** — cv2.line, cv2.rectangle, thickness, color
+- [x] **05 — Drawing Circles & Ellipses** — cv2.circle, cv2.ellipse, filled vs outlined
+- [x] **06 — Drawing Text** — cv2.putText, font faces, scale, baseline calculation
+- [x] **07 — Image Resizing** — cv2.resize, fx/fy, INTER_LINEAR vs INTER_AREA vs INTER_CUBIC
+- [x] **08 — Image Cropping** — NumPy slicing for cropping, aspect ratio preservation
+- [x] **09 — Image Rotation** — cv2.getRotationMatrix2D, cv2.warpAffine, center rotation
+- [x] **10 — Image Flipping** — cv2.flip (horizontal, vertical, both)
 - [ ] **11 — Image Translation** — cv2.warpAffine with translation matrix
 - [ ] **12 — Image Arithmetic** — cv2.add, cv2.subtract, saturation vs modulo arithmetic
 - [ ] **13 — Image Blending** — cv2.addWeighted, alpha blending, transparency
