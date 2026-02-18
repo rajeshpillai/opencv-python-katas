@@ -45,9 +45,9 @@ Core building blocks. Every kata after this assumes these are mastered.
 - [x] **14 — Bitwise Operations** — cv2.bitwise_and/or/xor/not, masking basics
 - [x] **15 — Creating Masks** — Binary masks from thresholds, combining masks
 - [x] **16 — Image Padding & Borders** — cv2.copyMakeBorder, BORDER_CONSTANT, BORDER_REFLECT
-- [ ] **17 — Image Channels: Split & Merge** — cv2.split, cv2.merge, single-channel visualization
-- [ ] **18 — Understanding Histograms** — cv2.calcHist, plotting pixel intensity distributions
-- [ ] **19 — Histogram Equalization** — cv2.equalizeHist, CLAHE, improving contrast
+- [x] **17 — Image Channels: Split & Merge** — cv2.split, cv2.merge, single-channel visualization
+- [x] **18 — Understanding Histograms** — cv2.calcHist, plotting pixel intensity distributions
+- [x] **19 — Histogram Equalization** — cv2.equalizeHist, CLAHE, improving contrast
 
 ### Intermediate — Core Processing (Katas 20–49)
 
