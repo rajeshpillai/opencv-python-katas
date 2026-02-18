@@ -13,6 +13,7 @@
 - [x] SolidJS + Vite scaffold
 - [x] API client, sidebar, header, editor, output panel
 - [x] Routing, dark/light theme, reactive sidebar active state
+- [x] Reset output panel, code, and focus state on kata navigation
 - [ ] Wire auth into frontend (login/register UI)
 - [ ] Interactive demo sliders in demo-panel
 - [ ] End-to-end verification: editor → run → see output
