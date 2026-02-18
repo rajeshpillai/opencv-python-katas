@@ -116,7 +116,7 @@ def draw_histogram(frame, width, height):
         pts = []
         for x in range(256):
             px = int(x * width / 256)
-            py = height - 5 - int(hist[x])
+            py = height - 5 - int(hist[x][0])
             pts.append([px, py])
         pts = np.array(pts, dtype=np.int32)
         cv2.polylines(canvas, [pts], False, color, 1, cv2.LINE_AA)
@@ -316,7 +316,7 @@ def draw_histogram(frame):
         hist = cv2.calcHist([frame], [ch], None, [256], [0, 256])
         cv2.normalize(hist, hist, 0, CELL_H - 20, cv2.NORM_MINMAX)
         pts = np.array([[int(x * CELL_W / 256),
-                         CELL_H - 5 - int(hist[x])]
+                         CELL_H - 5 - int(hist[x][0])]
                         for x in range(256)], dtype=np.int32)
         cv2.polylines(canvas, [pts], False, channel_colors[ch], 1, cv2.LINE_AA)
 

@@ -88,7 +88,7 @@ def draw_histogram_lines(hist_b, hist_g, hist_r, width=256, height=200):
     for hist, color in [(hist_b, (255, 100, 0)), (hist_g, (0, 255, 0)), (hist_r, (0, 0, 255))]:
         points = []
         for x in range(width):
-            y = height - int(hist[x])
+            y = height - int(hist[x][0])
             points.append([x, y])
         points = np.array(points, dtype=np.int32)
         cv2.polylines(canvas, [points], False, color, 1, cv2.LINE_AA)
@@ -203,7 +203,7 @@ def draw_histogram_lines(hist_b, hist_g, hist_r):
         cv2.line(canvas, (x_val, 0), (x_val, HIST_H), (40, 40, 40), 1)
 
     for hist, color in [(hist_b, (255, 100, 0)), (hist_g, (0, 220, 0)), (hist_r, (0, 0, 255))]:
-        pts = np.array([[x, HIST_H - int(hist[x])] for x in range(HIST_W)], dtype=np.int32)
+        pts = np.array([[x, HIST_H - int(hist[x][0])] for x in range(HIST_W)], dtype=np.int32)
         cv2.polylines(canvas, [pts], False, color, 1, cv2.LINE_AA)
 
     # Axis labels

@@ -283,7 +283,7 @@ def draw_histogram(gray_img, hist_h=HIST_H):
     cv2.rectangle(canvas, (HIGHLIGHT_THRESH, 0), (255, hist_h), (15, 20, 30), -1)
 
     for x in range(256):
-        bar_h = int(hist[x])
+        bar_h = int(hist[x][0])
         if bar_h > 0:
             if x <= SHADOW_THRESH:
                 color = (200, 120, 60)       # Shadow zone -- blue tone
