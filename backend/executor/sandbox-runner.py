@@ -78,6 +78,10 @@ class _SandboxVideoCapture:
         if self._use_real:
             return self._real.read()
         if self._frame_count >= self._MAX_FRAMES:
+            if self._frame_count == self._MAX_FRAMES:
+                print(f"[Sandbox] Completed {self._MAX_FRAMES} frames. "
+                      "Live camera katas should be tested locally with a real camera.")
+                self._frame_count += 1  # Only print once
             return False, None
         self._frame_count += 1
         # Generate a synthetic frame with moving content

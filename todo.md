@@ -14,6 +14,7 @@
 - [x] API client, sidebar, header, editor, output panel
 - [x] Routing, dark/light theme, reactive sidebar active state
 - [x] Reset output panel, code, and focus state on kata navigation
+- [x] Local execution mode for live camera katas (run on desktop with real camera)
 - [ ] Wire auth into frontend (login/register UI)
 - [ ] Interactive demo sliders in demo-panel
 - [ ] End-to-end verification: editor → run → see output
@@ -183,41 +184,41 @@ Setting up robust camera pipelines and real-time display patterns.
 
 Real-time detection and object tracking with a physical camera.
 
-- [ ] **105 — Live Face Detection & Counting** — Haar cascade on webcam, face count overlay, bounding boxes
-- [ ] **106 — Live Eye & Smile Detection** — Nested cascades on webcam, ROI-based eye/smile detection
-- [ ] **107 — Live Color Object Tracking** — HSV masking on webcam, track a colored object, draw trail
-- [ ] **108 — Live Motion Detection Alarm** — Frame differencing on webcam, motion zones, visual alert
-- [ ] **109 — Live Hand Detection** — Skin-color segmentation, convex hull, finger counting
-- [ ] **110 — Live Object Tracking with Selection** — Click-to-select ROI, CSRT tracker on webcam feed
-- [ ] **111 — Live People Counter (Line Crossing)** — Background subtraction + centroid tracking, count crosses
-- [ ] **112 — Live Multi-Object Color Tracker** — Track multiple colored objects simultaneously, ID assignment
+- [x] **105 — Live Face Detection & Counting** — Haar cascade on webcam, face count overlay, bounding boxes
+- [x] **106 — Live Eye & Smile Detection** — Nested cascades on webcam, ROI-based eye/smile detection
+- [x] **107 — Live Color Object Tracking** — HSV masking on webcam, track a colored object, draw trail
+- [x] **108 — Live Motion Detection Alarm** — Frame differencing on webcam, motion zones, visual alert
+- [x] **109 — Live Hand Detection** — Skin-color segmentation, convex hull, finger counting
+- [x] **110 — Live Object Tracking with Selection** — Click-to-select ROI, CSRT tracker on webcam feed
+- [x] **111 — Live People Counter (Line Crossing)** — Background subtraction + centroid tracking, count crosses
+- [x] **112 — Live Multi-Object Color Tracker** — Track multiple colored objects simultaneously, ID assignment
 
 ### Live Camera — AR & Visual Effects (Katas 113–117)
 
 Augmented reality overlays and creative visual effects on live video.
 
-- [ ] **113 — Live Face Blur (Privacy Filter)** — Detect + blur faces in real-time, toggle pixelation vs gaussian
-- [ ] **114 — Live Virtual Sunglasses** — Detect eyes, overlay sunglasses image with alpha blending
-- [ ] **115 — Live Background Removal** — GrabCut/MOG2 background subtraction, replace with solid color or image
-- [ ] **116 — Live Cartoon Effect** — Bilateral filter + edge mask for cartoon/comic look on webcam
-- [ ] **117 — Live Mirror & Kaleidoscope** — Split, flip, and tile webcam for mirror/kaleidoscope effects
+- [x] **113 — Live Face Blur (Privacy Filter)** — Detect + blur faces in real-time, toggle pixelation vs gaussian
+- [x] **114 — Live Virtual Sunglasses** — Detect eyes, overlay sunglasses image with alpha blending
+- [x] **115 — Live Background Removal** — GrabCut/MOG2 background subtraction, replace with solid color or image
+- [x] **116 — Live Cartoon Effect** — Bilateral filter + edge mask for cartoon/comic look on webcam
+- [x] **117 — Live Mirror & Kaleidoscope** — Split, flip, and tile webcam for mirror/kaleidoscope effects
 
 ### Live Camera — Measurement & Analysis (Katas 118–122)
 
 Practical measurement and analysis tools using live camera.
 
-- [ ] **118 — Live QR Code Scanner** — Detect, decode, and highlight QR codes in real-time
-- [ ] **119 — Live Document Edge Detection** — Real-time contour detection for document capture, perspective guide
-- [ ] **120 — Live Color Dominant Analyzer** — K-means on live frames, show dominant colors palette
-- [ ] **121 — Live Brightness & Contrast Monitor** — Real-time histogram stats, exposure warning indicators
-- [ ] **122 — Live Object Size Estimation** — Reference object calibration, measure real-world dimensions
+- [x] **118 — Live QR Code Scanner** — Detect, decode, and highlight QR codes in real-time
+- [x] **119 — Live Document Edge Detection** — Real-time contour detection for document capture, perspective guide
+- [x] **120 — Live Color Dominant Analyzer** — K-means on live frames, show dominant colors palette
+- [x] **121 — Live Brightness & Contrast Monitor** — Real-time histogram stats, exposure warning indicators
+- [x] **122 — Live Object Size Estimation** — Reference object calibration, measure real-world dimensions
 
 ### Live Camera — Advanced Projects (Katas 123–127)
 
 Multi-technique projects combining detection, tracking, and analysis.
 
-- [ ] **123 — Live Motion Heatmap** — Accumulated frame differences, real-time heatmap overlay
-- [ ] **124 — Live Speed Estimation** — Track object centroids between frames, estimate px/s velocity
-- [ ] **125 — Live Gesture-Controlled Drawing** — Draw on canvas with colored object or finger as a pen
-- [ ] **126 — Live Security Camera System** — Motion detection + face logging + timestamp + recording trigger
-- [ ] **127 — Live Video Streaming Dashboard** — Multi-camera grid, per-feed processing, stats overlay
+- [x] **123 — Live Motion Heatmap** — Accumulated frame differences, real-time heatmap overlay
+- [x] **124 — Live Speed Estimation** — Track object centroids between frames, estimate px/s velocity
+- [x] **125 — Live Gesture-Controlled Drawing** — Draw on canvas with colored object or finger as a pen
+- [x] **126 — Live Security Camera System** — Motion detection + face logging + timestamp + recording trigger
+- [x] **127 — Live Video Streaming Dashboard** — Multi-camera grid, per-feed processing, stats overlay
