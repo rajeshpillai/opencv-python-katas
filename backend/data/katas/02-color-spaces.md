@@ -1,9 +1,9 @@
 ---
-slug: 01-color-spaces
+slug: 02-color-spaces
 title: Color Spaces
 level: beginner
 concepts: [cv2.cvtColor, BGR, RGB, Grayscale, HSV]
-prerequisites: [00-image-loading]
+prerequisites: [01-image-loading]
 ---
 
 ## What Problem Are We Solving?

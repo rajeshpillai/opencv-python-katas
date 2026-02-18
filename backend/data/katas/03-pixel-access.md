@@ -1,9 +1,9 @@
 ---
-slug: 02-pixel-access
+slug: 03-pixel-access
 title: Pixel Access & Manipulation
 level: beginner
 concepts: [numpy indexing, pixel values, ROI, array slicing]
-prerequisites: [00-image-loading]
+prerequisites: [01-image-loading]
 ---
 
 ## What Problem Are We Solving?

@@ -1,0 +1,17 @@
+# Files to exclude from the OSS (public) repo
+
+# AI / internal prompts
+CLAUDE.MD
+system-prompt.md
+todo.md
+
+# Dev scripts (keep scripts/ but exclude publish script itself)
+scripts/publish-oss.sh
+start_dev.sh
+
+# Environment / secrets
+.env
+.env.*
+
+# OSS config (meta — not needed in the published repo)
+.ossignore

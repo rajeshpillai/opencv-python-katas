@@ -1,9 +1,9 @@
 ---
-slug: 00-image-loading
+slug: 01-image-loading
 title: Image Loading & Display
 level: beginner
 concepts: [cv2.imread, numpy arrays, image shape, cv2.imshow]
-prerequisites: []
+prerequisites: [00-opencv-basics]
 ---
 
 ## What Problem Are We Solving?
