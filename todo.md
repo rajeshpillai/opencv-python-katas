@@ -74,15 +74,15 @@ Image filtering, edge detection, morphology, and contour analysis.
 - [x] **38 — Finding Contours** — cv2.findContours, RETR modes, CHAIN_APPROX methods
 - [x] **39 — Contour Properties** — cv2.contourArea, cv2.arcLength, bounding boxes
 - [x] **40 — Contour Drawing & Filtering** — cv2.drawContours, filtering by area/shape
-- [ ] **41 — Convex Hull & Defects** — cv2.convexHull, cv2.convexityDefects
-- [ ] **42 — Contour Approximation** — cv2.approxPolyDP, shape simplification, epsilon
-- [ ] **43 — Shape Detection** — Classifying contours as triangle, rectangle, circle
-- [ ] **44 — Moments & Centroids** — cv2.moments, center of mass, hu moments
-- [ ] **45 — Bounding Shapes** — cv2.boundingRect, cv2.minAreaRect, cv2.minEnclosingCircle
-- [ ] **46 — Flood Fill** — cv2.floodFill, magic wand-style selection
-- [ ] **47 — Watershed Algorithm** — cv2.watershed, marker-based segmentation
-- [ ] **48 — GrabCut Segmentation** — cv2.grabCut, foreground extraction
-- [ ] **49 — Distance Transform** — cv2.distanceTransform, skeleton extraction
+- [x] **41 — Convex Hull & Defects** — cv2.convexHull, cv2.convexityDefects
+- [x] **42 — Contour Approximation** — cv2.approxPolyDP, shape simplification, epsilon
+- [x] **43 — Shape Detection** — Classifying contours as triangle, rectangle, circle
+- [x] **44 — Moments & Centroids** — cv2.moments, center of mass, hu moments
+- [x] **45 — Bounding Shapes** — cv2.boundingRect, cv2.minAreaRect, cv2.minEnclosingCircle
+- [x] **46 — Flood Fill** — cv2.floodFill, magic wand-style selection
+- [x] **47 — Watershed Algorithm** — cv2.watershed, marker-based segmentation
+- [x] **48 — GrabCut Segmentation** — cv2.grabCut, foreground extraction
+- [x] **49 — Distance Transform** — cv2.distanceTransform, skeleton extraction
 
 ### Intermediate — Color & Frequency Domain (Katas 50–59)
 
