@@ -399,12 +399,36 @@
     gap: 0;
 }
 
+/* Maximize editor: output pane hidden */
+.kata-code-layout--editor-max .kata-output-pane {
+    display: none;
+}
+
+/* Maximize output: editor pane hidden */
+.kata-code-layout--output-max .kata-editor-pane {
+    display: none;
+}
+
+/* When output is maximized, output pane fills the space */
+.kata-code-layout--output-max .kata-output-pane {
+    flex: 1;
+}
+
 .kata-editor-pane {
     flex: 1;
     display: flex;
     flex-direction: column;
     border-right: 1px solid var(--color-border);
     min-width: 0;
+}
+
+.kata-output-pane {
+    display: flex;
+    flex-direction: column;
+    width: 380px;
+    min-width: 280px;
+    background-color: var(--color-bg-surface);
+    overflow: hidden;
 }
 
 .kata-editor-toolbar {
@@ -425,6 +449,29 @@
 .kata-editor-actions {
     display: flex;
     gap: 8px;
+    align-items: center;
+}
+
+.kata-output-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 12px;
+    background-color: var(--color-bg-elevated);
+    border-bottom: 1px solid var(--color-border);
+    min-height: 37px;
+}
+
+.kata-output-toolbar-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.kata-output-toolbar-actions {
+    display: flex;
+    gap: 6px;
+    align-items: center;
 }
 
 .code-editor-container {
@@ -473,6 +520,34 @@
 .btn--ghost:hover:not(:disabled) {
     background-color: var(--color-bg-hover);
     color: var(--color-text-primary);
+}
+
+/* Icon-only button: compact, no label */
+.btn--icon {
+    background-color: transparent;
+    color: var(--color-text-muted);
+    border-color: transparent;
+    padding: 4px 7px;
+    font-size: 15px;
+    line-height: 1;
+    border-radius: 5px;
+}
+
+.btn--icon:hover {
+    background-color: var(--color-bg-hover);
+    color: var(--color-text-primary);
+    border-color: var(--color-border);
+}
+
+.btn--icon-active {
+    background-color: color-mix(in srgb, var(--color-accent) 15%, transparent);
+    color: var(--color-accent);
+    border-color: color-mix(in srgb, var(--color-accent) 30%, transparent);
+}
+
+.btn--icon-active:hover {
+    background-color: color-mix(in srgb, var(--color-accent) 25%, transparent);
+    color: var(--color-accent);
 }
 
 /* ── Output Panel ───────────────────────────────────────────────────────────── */
