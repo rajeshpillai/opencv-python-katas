@@ -21,15 +21,16 @@ python-opencv-katas/
 │   ├── main.py                  # FastAPI entry point
 │   ├── requirements.txt
 │   ├── data/
-│   │   └── katas/               # Kata JSON files (kata-as-data)
-│   │       ├── 00-image-loading.json
-│   │       ├── 01-color-spaces.json
-│   │       └── 02-pixel-access.json
+│   │   └── katas/               # Kata Markdown files (YAML frontmatter)
+│   │       ├── 00-opencv-basics.md
+│   │       ├── 01-image-loading.md
+│   │       ├── 02-color-spaces.md
+│   │       └── 03-pixel-access.md
 │   ├── executor/
 │   │   ├── sandbox.py           # Subprocess orchestrator
 │   │   └── sandbox-runner.py    # Isolated execution script
 │   ├── models/
-│   │   ├── db.py                # SQLite init + kata seeding
+│   │   ├── db.py                # SQLite init + kata seeding from Markdown
 │   │   └── schemas.py           # Pydantic request/response models
 │   └── routers/
 │       ├── katas.py             # GET /api/katas, GET /api/katas/{slug}
@@ -40,9 +41,12 @@ python-opencv-katas/
 │   ├── vite.config.ts
 │   └── src/
 │       ├── App.tsx              # Root layout + routing
-│       ├── index.css            # Tailwind v4 theme tokens
+│       ├── index.tsx            # Entry point (Router + ThemeProvider)
+│       ├── index.css            # Tailwind v4 theme tokens (dark + light)
 │       ├── components.css       # All component CSS classes
 │       ├── api/client.ts        # Typed API client
+│       ├── context/
+│       │   └── ThemeContext.tsx  # Dark/light theme toggle
 │       ├── components/
 │       │   ├── kata-sidebar.tsx
 │       │   ├── kata-header.tsx
@@ -51,8 +55,8 @@ python-opencv-katas/
 │       │   └── output-panel.tsx
 │       └── pages/
 │           └── kata-page.tsx
-├── todo.md
-└── SYSTEM_PROMPT.md
+└── scripts/
+    └── publish-oss.sh           # Publish filtered copy to OSS repo
 ```
 
 ---
@@ -103,7 +107,7 @@ source .venv/bin/activate
 uvicorn backend.main:app --reload --port 8000
 ```
 
-The API will be available at `http://localhost:8000`.  
+The API will be available at `http://localhost:8000`.
 Interactive API docs: `http://localhost:8000/docs`
 
 ### Start the frontend
@@ -124,7 +128,7 @@ The app will be available at `http://localhost:5173`.
 | Method | Endpoint | Description |
 |---|---|---|
 | `GET` | `/api/katas` | List all katas (id, slug, title, level, concepts) |
-| `GET` | `/api/katas/{slug}` | Full kata detail (description, tips, starter code) |
+| `GET` | `/api/katas/{slug}` | Full kata detail (body, starter code, prerequisites) |
 | `POST` | `/api/execute` | Run code in sandbox, returns image + logs + error |
 | `POST` | `/api/auth/register` | Register with email + password, returns JWT |
 | `POST` | `/api/auth/login` | Login, returns JWT |
@@ -154,37 +158,45 @@ Response:
 
 User code runs in an **isolated subprocess** with:
 
-- ✅ Only `import cv2` and `import numpy as np` allowed
-- ✅ `cv2.imshow()` intercepted — image captured as PNG, not displayed
-- ✅ 10-second execution timeout
-- ✅ No filesystem access beyond temp
-- ✅ No network access
-- ❌ All other imports blocked with a friendly error message
+- Only `import cv2` and `import numpy as np` allowed
+- `cv2.imshow()` intercepted — image captured as PNG, not displayed
+- 10-second execution timeout
+- No filesystem access beyond temp
+- No network access
+- All other imports blocked with a friendly error message
 
 ---
 
 ## Adding New Katas
 
-Create a JSON file in `backend/data/katas/` following the naming convention `NN-slug-name.json`:
+Create a Markdown file in `backend/data/katas/` with YAML frontmatter:
 
-```json
-{
-  "slug": "03-drawing-primitives",
-  "title": "Drawing Primitives",
-  "level": "beginner",
-  "concepts": ["cv2.line", "cv2.rectangle", "cv2.circle"],
-  "description": "Learn to draw shapes on images...",
-  "prerequisites": ["00-image-loading"],
-  "tips": [
-    "Coordinates are always (x, y) — column first, row second.",
-    "Thickness -1 fills the shape."
-  ],
-  "starter_code": "import cv2\nimport numpy as np\n\nimg = np.zeros((400, 400, 3), np.uint8)\n# Draw here\ncv2.imshow('result', img)\n",
-  "demo_controls": []
-}
+```markdown
+---
+slug: 04-drawing-primitives
+title: Drawing Primitives
+level: beginner
+concepts: [cv2.line, cv2.rectangle, cv2.circle]
+prerequisites: [01-image-loading]
+---
+
+## What Problem Are We Solving?
+
+Explain the concept here...
+
+## Starter Code
+
+```python
+import cv2
+import numpy as np
+
+img = np.zeros((400, 400, 3), np.uint8)
+# Draw here
+cv2.imshow('result', img)
+```
 ```
 
-Restart the backend — katas are seeded from JSON files on startup.
+Restart the backend — katas are seeded from Markdown files on startup. The starter code is automatically extracted from the `## Starter Code` section.
 
 ---
 
@@ -192,9 +204,50 @@ Restart the backend — katas are seeded from JSON files on startup.
 
 | Level | Topics |
 |---|---|
-| **Beginner** | Image loading, color spaces, pixel access, resizing, drawing |
+| **Beginner** | OpenCV basics, image loading, color spaces, pixel access, resizing, drawing |
 | **Intermediate** | Thresholding, blurring, edge detection, morphology, contours |
 | **Advanced** | Feature detection, video processing, object tracking, pipelines |
+
+---
+
+## Publishing to OSS
+
+The `scripts/publish-oss.sh` script publishes a filtered copy of this repo to the public OSS repository at [algorisys-oss/python-opencv-katas](https://github.com/algorisys-oss/python-opencv-katas). Internal files (AI prompts, dev scripts, etc.) are stripped via `.ossignore`.
+
+### Dry run (preview what will be published)
+
+```bash
+./scripts/publish-oss.sh
+```
+
+### Push to OSS repo
+
+```bash
+./scripts/publish-oss.sh --push
+```
+
+### Push with a custom commit message
+
+```bash
+OSS_MESSAGE="feat: add kata 00-03 beginner path" ./scripts/publish-oss.sh --push
+```
+
+### Override the remote (if needed)
+
+```bash
+OSS_REMOTE=git@github.com:algorisys-oss/python-opencv-katas.git ./scripts/publish-oss.sh --push
+```
+
+### What gets excluded
+
+Files listed in `.ossignore` are removed before publishing:
+
+- `CLAUDE.MD` — AI system prompt
+- `system-prompt.md`, `todo.md` — internal docs
+- `scripts/publish-oss.sh` — the publish script itself
+- `start_dev.sh` — local dev script
+- `.env`, `.env.*` — secrets
+- `.ossignore` — meta config
 
 ---
 
@@ -203,4 +256,5 @@ Restart the backend — katas are seeded from JSON files on startup.
 - **No login required** to use the playground (anonymous mode — state is in-browser only)
 - **Login** enables progress tracking and saving code versions
 - CSS: all styling via classes in `components.css` — no inline styles
-- Kata content lives in JSON files, not in code — easy to add/edit without touching Python
+- Kata content lives in Markdown files with YAML frontmatter — easy to add/edit without touching Python
+- Dark/light theme toggle available in the sidebar

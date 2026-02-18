@@ -10,7 +10,7 @@ set -euo pipefail
 # Usage:
 #   ./scripts/publish-oss.sh                          # dry-run (default)
 #   ./scripts/publish-oss.sh --push                   # actually push to OSS remote
-#   OSS_REMOTE=git@github.com:algorisys-tech/python-opencv-katas.git ./scripts/publish-oss.sh --push
+#   OSS_REMOTE=git@github.com:algorisys-oss/python-opencv-katas.git ./scripts/publish-oss.sh --push
 #
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -18,7 +18,7 @@ REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 
 # --- Configuration -----------------------------------------------------------
 
-OSS_REMOTE="${OSS_REMOTE:-}"                      # set via env or edit here
+OSS_REMOTE="${OSS_REMOTE:-https://github.com/algorisys-oss/python-opencv-katas.git}"
 OSS_BRANCH="${OSS_BRANCH:-main}"                  # branch to push to on OSS remote
 OSS_MESSAGE="${OSS_MESSAGE:-}"                    # custom commit message (optional)
 OSSIGNORE_FILE="$REPO_ROOT/.ossignore"            # list of paths to exclude
@@ -37,7 +37,7 @@ error() { printf "\033[1;31m=> %s\033[0m\n" "$*"; exit 1; }
 # --- Validate -----------------------------------------------------------------
 
 if [[ "$DRY_RUN" == false && -z "$OSS_REMOTE" ]]; then
-    error "OSS_REMOTE is not set. Export it or pass it inline:\n  OSS_REMOTE=git@github.com:algorisys-tech/python-opencv-katas.git $0 --push"
+    error "OSS_REMOTE is not set. Export it or pass it inline:\n  OSS_REMOTE=git@github.com:algorisys-oss/python-opencv-katas.git $0 --push"
 fi
 
 if [[ ! -f "$OSSIGNORE_FILE" ]]; then
@@ -83,7 +83,7 @@ if [[ "$DRY_RUN" == true ]]; then
     echo ""
     warn "DRY RUN — no changes pushed."
     warn "Review the tree above. To push for real:"
-    warn "  OSS_REMOTE=git@github.com:algorisys-tech/python-opencv-katas.git $0 --push"
+    warn "  OSS_REMOTE=git@github.com:algorisys-oss/python-opencv-katas.git $0 --push"
     exit 0
 fi
 
