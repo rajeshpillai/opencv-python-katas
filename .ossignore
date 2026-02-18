@@ -2,7 +2,7 @@
 
 # AI / internal prompts
 CLAUDE.MD
-system-prompt.md
+SYSTEM_PROMPT.md
 todo.md
 
 # Dev scripts (keep scripts/ but exclude publish script itself)
