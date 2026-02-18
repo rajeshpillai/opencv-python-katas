@@ -133,28 +133,28 @@ Processing video streams frame by frame.
 
 Classical detection pipelines and pre-trained models.
 
-- [ ] **80 — Haar Cascade: Face Detection** — cv2.CascadeClassifier, detectMultiScale
-- [ ] **81 — Haar Cascade: Eye & Smile Detection** — Nested cascades, ROI-based detection
-- [ ] **82 — HOG Pedestrian Detection** — cv2.HOGDescriptor, detectMultiScale
-- [ ] **83 — QR Code & Barcode Detection** — cv2.QRCodeDetector, decode and locate
-- [ ] **84 — Text Detection with EAST** — cv2.dnn with EAST model, text bounding boxes
-- [ ] **85 — DNN: Loading Pre-trained Models** — cv2.dnn.readNet, blob creation, forward pass
-- [ ] **86 — DNN: Image Classification** — MobileNet/ResNet classification with OpenCV DNN
-- [ ] **87 — DNN: Object Detection (SSD)** — Single-shot detection, bounding boxes + confidence
-- [ ] **88 — DNN: Object Detection (YOLO)** — YOLO with OpenCV DNN, NMS post-processing
-- [ ] **89 — DNN: Semantic Segmentation** — FCN/DeepLab with OpenCV DNN, pixel-wise labels
+- [x] **80 — Haar Cascade: Face Detection** — cv2.CascadeClassifier, detectMultiScale
+- [x] **81 — Haar Cascade: Eye & Smile Detection** — Nested cascades, ROI-based detection
+- [x] **82 — HOG Pedestrian Detection** — cv2.HOGDescriptor, detectMultiScale
+- [x] **83 — QR Code & Barcode Detection** — cv2.QRCodeDetector, decode and locate
+- [x] **84 — Text Detection with EAST** — cv2.dnn with EAST model, text bounding boxes
+- [x] **85 — DNN: Loading Pre-trained Models** — cv2.dnn.readNet, blob creation, forward pass
+- [x] **86 — DNN: Image Classification** — MobileNet/ResNet classification with OpenCV DNN
+- [x] **87 — DNN: Object Detection (SSD)** — Single-shot detection, bounding boxes + confidence
+- [x] **88 — DNN: Object Detection (YOLO)** — YOLO with OpenCV DNN, NMS post-processing
+- [x] **89 — DNN: Semantic Segmentation** — FCN/DeepLab with OpenCV DNN, pixel-wise labels
 
 ### Expert — Real-World Pipelines (Katas 90–99)
 
 End-to-end projects combining multiple techniques.
 
-- [ ] **90 — Document Scanner** — Edge detection → contour → perspective transform → threshold
-- [ ] **91 — Lane Detection** — ROI masking → Canny → Hough lines → lane overlay
-- [ ] **92 — Panorama Stitching Pipeline** — Multi-image feature matching → homography → blend
-- [ ] **93 — Face Blurring Pipeline** — Haar detection → Gaussian blur on detected regions
-- [ ] **94 — Motion Heatmap** — Accumulate frame differences → colorize → overlay
-- [ ] **95 — Color-Based Object Tracker** — HSV mask → contours → centroid tracking
-- [ ] **96 — Image Comparison & Similarity** — SSIM, histogram comparison, feature matching
-- [ ] **97 — Augmented Reality Overlay** — Marker detection → homography → overlay image
-- [ ] **98 — Performance Optimization** — UMat (GPU), vectorized NumPy, avoiding Python loops
-- [ ] **99 — Building a CV Pipeline Framework** — Composable stages, error handling, benchmarking
+- [x] **90 — Document Scanner** — Edge detection → contour → perspective transform → threshold
+- [x] **91 — Lane Detection** — ROI masking → Canny → Hough lines → lane overlay
+- [x] **92 — Panorama Stitching Pipeline** — Multi-image feature matching → homography → blend
+- [x] **93 — Face Blurring Pipeline** — Haar detection → Gaussian blur on detected regions
+- [x] **94 — Motion Heatmap** — Accumulate frame differences → colorize → overlay
+- [x] **95 — Color-Based Object Tracker** — HSV mask → contours → centroid tracking
+- [x] **96 — Image Comparison & Similarity** — SSIM, histogram comparison, feature matching
+- [x] **97 — Augmented Reality Overlay** — Marker detection → homography → overlay image
+- [x] **98 — Performance Optimization** — UMat (GPU), vectorized NumPy, avoiding Python loops
+- [x] **99 — Building a CV Pipeline Framework** — Composable stages, error handling, benchmarking
