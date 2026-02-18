@@ -52,9 +52,8 @@ def get_kata(slug: str):
         title=row["title"],
         level=row["level"],
         concepts=json.loads(row["concepts"]),
-        description=content.get("description", ""),
+        body=content.get("body", ""),
         prerequisites=content.get("prerequisites", []),
-        tips=content.get("tips", []),
         starter_code=content.get("starter_code", ""),
         demo_controls=content.get("demo_controls", []),
     )

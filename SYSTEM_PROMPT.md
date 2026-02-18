@@ -42,6 +42,8 @@ Database: SQLite
 
 OpenCV: opencv-python
 
+Update todo.md after each success
+
 No unnecessary frameworks or abstractions
 
 Code execution must be sandboxed and safe

@@ -1,12 +1,15 @@
 """
 SQLite database initialization and helpers.
-Tables are created on startup; katas are seeded from JSON files.
+Tables are created on startup; katas are seeded from Markdown files
+with YAML frontmatter (*.md in backend/data/katas/).
 """
 
 import sqlite3
 import json
-import os
+import re
 from pathlib import Path
+
+import frontmatter
 
 DB_PATH = Path(__file__).parent.parent / "data" / "opencv-katas.db"
 KATAS_DIR = Path(__file__).parent.parent / "data" / "katas"
@@ -62,21 +65,40 @@ def init_db() -> None:
     conn.close()
 
 
+def _extract_starter_code(body: str) -> str:
+    """Extract the first ```python ... ``` block from the Markdown body."""
+    match = re.search(r"```python\n(.*?)```", body, re.DOTALL)
+    return match.group(1).strip() if match else ""
+
+
 def _seed_katas(conn: sqlite3.Connection) -> None:
-    """Load kata JSON files into the katas table (upsert by slug)."""
+    """Load kata .md files into the katas table (upsert by slug)."""
     if not KATAS_DIR.exists():
         return
 
     cur = conn.cursor()
-    for json_file in sorted(KATAS_DIR.glob("*.json")):
-        with open(json_file, "r") as f:
-            data = json.load(f)
+    for md_file in sorted(KATAS_DIR.glob("*.md")):
+        post = frontmatter.load(str(md_file))
+        meta = post.metadata
+        body = post.content  # Markdown body (everything after frontmatter)
 
-        slug = data["slug"]
-        title = data["title"]
-        level = data["level"]
-        concepts = json.dumps(data.get("concepts", []))
-        content_json = json.dumps(data)
+        slug = meta["slug"]
+        title = meta["title"]
+        level = meta["level"]
+        concepts = meta.get("concepts", [])
+        prerequisites = meta.get("prerequisites", [])
+        starter_code = _extract_starter_code(body)
+
+        content = {
+            "slug": slug,
+            "title": title,
+            "level": level,
+            "concepts": concepts,
+            "prerequisites": prerequisites,
+            "starter_code": starter_code,
+            "body": body,          # Full Markdown body for frontend rendering
+            "demo_controls": [],
+        }
 
         cur.execute("""
             INSERT INTO katas (slug, title, level, concepts, content_json)
@@ -86,6 +108,6 @@ def _seed_katas(conn: sqlite3.Connection) -> None:
                 level        = excluded.level,
                 concepts     = excluded.concepts,
                 content_json = excluded.content_json
-        """, (slug, title, level, concepts, content_json))
+        """, (slug, title, level, json.dumps(concepts), json.dumps(content)))
 
     conn.commit()

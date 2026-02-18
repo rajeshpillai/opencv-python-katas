@@ -272,90 +272,122 @@
     padding: 24px;
     overflow-y: auto;
     flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
 }
 
-.demo-section {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
+/* ── Kata Markdown Renderer ─────────────────────────────────────────────────── */
 
-.demo-section-title {
-    font-size: 12px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--color-text-muted);
-}
-
-.demo-description {
+.kata-markdown {
+    color: var(--color-text-secondary);
     font-size: 14px;
-    line-height: 1.7;
-    color: var(--color-text-secondary);
-    white-space: pre-wrap;
+    line-height: 1.75;
+    max-width: 720px;
 }
 
-.demo-prereq-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
+.kata-markdown h2 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin: 28px 0 10px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--color-border);
+    letter-spacing: -0.01em;
 }
 
-.demo-prereq-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 13px;
-    color: var(--color-text-secondary);
+.kata-markdown h2:first-child {
+    margin-top: 0;
 }
 
-.demo-prereq-icon {
-    color: var(--color-accent);
-    font-size: 12px;
+.kata-markdown h3 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin: 20px 0 8px;
 }
 
-.demo-tips-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+.kata-markdown p {
+    margin: 0 0 14px;
 }
 
-.demo-tip-item {
-    display: flex;
-    gap: 10px;
-    font-size: 13px;
-    line-height: 1.6;
-    color: var(--color-text-secondary);
+.kata-markdown ul,
+.kata-markdown ol {
+    margin: 0 0 14px;
+    padding-left: 22px;
+}
+
+.kata-markdown li {
+    margin-bottom: 6px;
+}
+
+.kata-markdown code {
+    font-family: var(--font-mono);
+    font-size: 12.5px;
     background-color: var(--color-bg-elevated);
     border: 1px solid var(--color-border);
-    border-radius: 6px;
-    padding: 10px 12px;
+    border-radius: 4px;
+    padding: 1px 5px;
+    color: var(--color-accent);
 }
 
-.demo-tip-bullet {
-    flex-shrink: 0;
-    font-size: 14px;
+.kata-markdown pre {
+    background-color: var(--color-bg-base);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 16px;
+    overflow-x: auto;
+    margin: 0 0 16px;
 }
 
-.kata-demo-placeholder {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex: 1;
-    padding: 40px;
-}
-
-.kata-demo-placeholder-text {
-    font-size: 14px;
-    color: var(--color-text-muted);
-    text-align: center;
-    max-width: 320px;
+.kata-markdown pre code {
+    background: none;
+    border: none;
+    padding: 0;
+    color: var(--color-text-primary);
+    font-size: 13px;
     line-height: 1.6;
+}
+
+.kata-markdown blockquote {
+    border-left: 3px solid var(--color-accent);
+    margin: 0 0 14px;
+    padding: 8px 16px;
+    background-color: color-mix(in srgb, var(--color-accent) 6%, transparent);
+    border-radius: 0 6px 6px 0;
+    color: var(--color-text-secondary);
+}
+
+.kata-markdown blockquote p {
+    margin: 0;
+}
+
+.kata-markdown table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 0 16px;
+    font-size: 13px;
+}
+
+.kata-markdown th {
+    text-align: left;
+    padding: 8px 12px;
+    background-color: var(--color-bg-elevated);
+    border: 1px solid var(--color-border);
+    color: var(--color-text-primary);
+    font-weight: 600;
+}
+
+.kata-markdown td {
+    padding: 8px 12px;
+    border: 1px solid var(--color-border);
+    color: var(--color-text-secondary);
+}
+
+.kata-markdown tr:nth-child(even) td {
+    background-color: color-mix(in srgb, var(--color-bg-elevated) 40%, transparent);
+}
+
+.kata-markdown strong {
+    color: var(--color-text-primary);
+    font-weight: 600;
 }
 
 /* ── Code Layout ────────────────────────────────────────────────────────────── */

@@ -13,9 +13,8 @@ export interface KataListItem {
 }
 
 export interface KataDetail extends KataListItem {
-    description: string;
+    body: string;              // Full Markdown body
     prerequisites: string[];
-    tips: string[];
     starter_code: string;
     demo_controls: DemoControl[];
 }

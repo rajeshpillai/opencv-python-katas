@@ -22,10 +22,9 @@ class KataDetail(BaseModel):
     title: str
     level: str
     concepts: list[str]
-    description: str
     prerequisites: list[str]
-    tips: list[str]
     starter_code: str
+    body: str                    # Full Markdown body for frontend rendering
     demo_controls: list[dict[str, Any]]
 
 
