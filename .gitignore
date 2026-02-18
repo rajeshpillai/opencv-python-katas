@@ -27,6 +27,7 @@ backend/data/*.db
 node_modules/
 frontend/dist/
 frontend/.vite/
+frontend/bun.lockb
 
 # Editor / OS
 .DS_Store
