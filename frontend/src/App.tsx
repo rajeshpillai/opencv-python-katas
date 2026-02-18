@@ -3,7 +3,7 @@
  */
 
 import { Component, createResource, Show } from "solid-js";
-import { Route, Router, useNavigate } from "@solidjs/router";
+import { Route, useLocation, useNavigate } from "@solidjs/router";
 import { api } from "./api/client";
 import KataSidebar from "./components/kata-sidebar";
 import KataPage from "./pages/kata-page";
@@ -21,9 +21,10 @@ const Layout: Component<{ children?: any }> = (props) => {
         }
     };
 
-    // Get current slug from URL
+    // Get current slug from URL (reactive via router)
+    const location = useLocation();
     const currentSlug = () => {
-        const parts = window.location.pathname.split("/");
+        const parts = location.pathname.split("/");
         return parts[parts.length - 1] ?? "";
     };
 
@@ -32,7 +33,7 @@ const Layout: Component<{ children?: any }> = (props) => {
             <Show when={katas()} fallback={<div class="sidebar-loading">Loading…</div>}>
                 {(list) => {
                     // Auto-redirect from root
-                    if (window.location.pathname === "/") handleRootRedirect();
+                    if (location.pathname === "/") handleRootRedirect();
                     return <KataSidebar katas={list()} currentSlug={currentSlug()} />;
                 }}
             </Show>
@@ -43,10 +44,12 @@ const Layout: Component<{ children?: any }> = (props) => {
 
 const App: Component = () => {
     return (
-        <Route path="/" component={Layout}>
-            <Route path="/" component={() => <div class="kata-loading">Loading katas…</div>} />
-            <Route path="/kata/:slug" component={KataPage} />
-        </Route>
+        <>
+            <Route path="/" component={Layout}>
+                <Route path="/" component={() => <div class="kata-loading">Loading katas…</div>} />
+                <Route path="/kata/:slug" component={KataPage} />
+            </Route>
+        </>
     );
 };
 

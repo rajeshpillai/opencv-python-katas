@@ -66,9 +66,16 @@ def init_db() -> None:
 
 
 def _extract_starter_code(body: str) -> str:
-    """Extract the first ```python ... ``` block from the Markdown body."""
-    match = re.search(r"```python\n(.*?)```", body, re.DOTALL)
-    return match.group(1).strip() if match else ""
+    """Extract the ```python block under '## Starter Code', or the last one."""
+    # Try the block right after the "## Starter Code" heading
+    match = re.search(
+        r"## Starter Code\s*```python\n(.*?)```", body, re.DOTALL
+    )
+    if match:
+        return match.group(1).strip()
+    # Fallback: last ```python block in the file
+    matches = re.findall(r"```python\n(.*?)```", body, re.DOTALL)
+    return matches[-1].strip() if matches else ""
 
 
 def _seed_katas(conn: sqlite3.Connection) -> None:
